@@ -1,0 +1,71 @@
+<h1>生成Git批处理文件</h1>
+<br>
+<blockquote>
+    <p>填写git clone Url地址，分支名称，完成创建批处理bat文件并下载到电脑, 执行bat文件即可.</p>
+</blockquote>
+<div class="well">
+    <div class="form-fields" ng-hide="previewMode">
+        <h3>添加工程仓库地址</h3>
+        <hr>
+        <div class="row">
+            <div class="span2">工程 git 地址（URL）</div>
+            <div class="span4">
+                <input type="text" style="width:150%" ng-model="form.url">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">分支（Branch）</div>
+            <div class="span2">
+                <input type="text" ng-model="form.branch">
+            </div>
+        </div>
+        <div class="add-field">
+            <button type="submit" class="btn" ng-click="addNewField()"><i class="icon-plus"></i> 添加</button>
+        </div>
+        <hr>
+        <p ng-show="form.form_fields.length == 0">还没有添加工程.</p>
+        <accordion close-others="accordion.oneAtATime">
+            <accordion-group heading="{{field.pro_title}}" ng-repeat="field in form.form_fields">
+                <div class="accordion-edit">
+                <!-- <span>修改</span> -->
+                    <button class="btn btn-danger pull-right" type="button" ng-click="deleteField(field.field_id)"><i class="icon-trash icon-white"></i> 删除</button>
+                    </br><hr>
+                    <div class="row">
+                        <div class="span2">工程 git 地址（URL）</div>
+                        <div class="span4">
+                            <input type="text" style="width:150%" ng-model="field.url" value="{{field.url}}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">分支（Branch）</div>
+                        <div class="span2">
+                            <input type="text" ng-model="field.branch" value="{{field.branch}}">
+                        </div>
+                    </div>
+                </div>
+            </accordion-group>
+        </accordion>
+        <p class="text-center">
+           <!--  <button class="btn btn-primary right" type="button" ng-click="previewOn()"><i class="icon-eye-open icon-white"></i> Preview Form</button> -->
+            <button class="btn btn-danger right" type="button" ng-click="reset()"><i class="icon-refresh icon-white"></i> 重置</button>
+        </p>
+        <br>
+        <hr>
+        <div class="text-center">
+            <a class="btn btn-small btn-primary" ng-show="!showJson" ng-click="showJson = true">Show form json object</a>
+            <a class="btn btn-small btn-inverse" ng-show="showJson" ng-click="showJson = false">Hide form json object</a>
+            <br>
+            <br>
+        </div>
+        <div ng-show="showJson">
+            <h4>Form object content:</h4>
+            <pre>{{ form | json }}</pre>
+        </div>
+    </div>
+    <!-- <div class="form-fields-preview" ng-show="previewMode">
+        <form-directive form="previewForm"></form-directive>
+        <p class="text-center">
+            <button class="btn btn-primary btn-large right" type="button" ng-click="previewOff()"><i class="icon-arrow-left icon-white"></i> Back to Create Mode</button>
+        </p>
+    </div> -->
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "angularjsFormBuilder",
+  "version": "0.2.1",
+  "dependencies": {
+    "angular": "~1.0.7",
+    "json3": "~3.2.4",
+    "jquery": "~2.2.0",
+    "bootstrap-sass": "~3.3.4",
+    "es5-shim": "~2.0.8",
+    "angular-resource": "~1.0.7",
+    "angular-cookies": "~1.0.7",
+    "angular-strap": "~0.7.5",
+    "angular-ui": "~0.4.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.0.7",
+    "angular-scenario": "~1.0.7"
+  },
+  "resolutions": {
+    "bootstrap": ">=2.0.4 <3.0"
+  }
+}
