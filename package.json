@@ -1,7 +1,10 @@
 {
   "name": "git-batch-file-builder",
   "version": "0.2.1",
-  "dependencies": {},
+  "dependencies": {
+    "koa": "^1.2.1",
+    "koa-router": "^5.4.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
