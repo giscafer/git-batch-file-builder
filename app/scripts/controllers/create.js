@@ -1,6 +1,6 @@
 'use strict';
 
-angularApp.controller('CreateCtrl', function ($scope, $dialog) {
+angularApp.controller('CreateCtrl', function ($scope, $dialog,FormService) {
 
     // preview form mode
     $scope.previewMode = false;
@@ -105,4 +105,10 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog) {
         $scope.form.form_fields.splice(0, $scope.form.form_fields.length);
         $scope.addField.lastAddedID = 0;
     }
+    $scope.submit = function (){
+        console.log(11)
+        var url = 'http://localhost:3000/test2';
+        FormService.send(url,$scope.form.form_fields);
+    }
+
 });

@@ -1,6 +1,6 @@
 'use strict';
-
-var angularApp = angular.module('angularjsFormBuilderApp', ['ui.bootstrap']);
+//gitBatchBuilderApp
+var angularApp = angular.module('gitBatchBuilderApp', ['ui.bootstrap']);
 
 angularApp.config(function ($routeProvider) {
 
