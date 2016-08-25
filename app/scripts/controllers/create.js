@@ -107,8 +107,10 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog,FormService) {
     }
     $scope.submit = function (){
         console.log(11)
-        var url = 'http://localhost:3000/test2';
-        FormService.send(url,$scope.form.form_fields);
+        var url = 'http://localhost:18080/api/gitbatch/test';
+        FormService.send(url,{data:$scope.form.form_fields}).then(function(data){
+            console.log(data)
+        });
     }
 
 });
