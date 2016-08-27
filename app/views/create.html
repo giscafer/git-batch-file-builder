@@ -16,7 +16,8 @@
         <div class="row">
             <div class="span2">分支（Branch）</div>
             <div class="span2">
-                <input type="text" ng-model="form.branch">
+                <input type="text" ng-model="form.branch" ng-disabled="disabledBrach"/>
+                <div style="float:left">（即将支持分支）</div>
             </div>
         </div>
         <div class="add-field">
@@ -39,7 +40,7 @@
                     <div class="row">
                         <div class="span2">分支（Branch）</div>
                         <div class="span2">
-                            <input type="text" ng-model="field.branch" value="{{field.branch}}">
+                            <input type="text" ng-model="field.branch" value="{{field.branch}}" ng-disabled="disabledBrach"/>
                         </div>
                     </div>
                 </div>
@@ -51,7 +52,7 @@
         </p>
         <br>
         <hr>
-        <div class="text-center">
+        <div class="text-center" ng-hide="true">
             <a class="btn btn-small btn-primary" ng-show="!showJson" ng-click="showJson = true">Show form json object</a>
             <a class="btn btn-small btn-inverse" ng-show="showJson" ng-click="showJson = false">Hide form json object</a>
             <br>

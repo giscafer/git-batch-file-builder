@@ -4,6 +4,7 @@ angularApp.controller('CreateCtrl', function ($scope, $http,$dialog,FormService,
 
     // preview form mode
     $scope.previewMode = false;
+    $scope.disabledBrach = true;
 
     // new form
     $scope.form = {};
@@ -29,7 +30,7 @@ angularApp.controller('CreateCtrl', function ($scope, $http,$dialog,FormService,
     $scope.addNewField = function(){
         var url=$scope.form.url;
         if(!url || url.indexOf('.git')===-1){
-             $dialog.messageBox("提示", "请填写正确的Url地址~！例如：git@github.com:alibaba/anyproxy.git", btns).open();
+             $dialog.messageBox("提示", "请填写正确的Url地址~！例如：https://github.com/giscafer/git-batch-file-builder.git", btns).open();
              return;
         }
         // incr field_id counter
@@ -46,6 +47,7 @@ angularApp.controller('CreateCtrl', function ($scope, $http,$dialog,FormService,
         };
         // put newField into fields array
         $scope.form.form_fields.push(newField);
+        $scope.form.url='';
     };
 
     // deletes particular field on button click
