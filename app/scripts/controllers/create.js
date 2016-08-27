@@ -1,6 +1,6 @@
 'use strict';
 
-angularApp.controller('CreateCtrl', function ($scope, $dialog,FormService) {
+angularApp.controller('CreateCtrl', function ($scope, $http,$dialog,FormService,AppServerEndPoint) {
 
     // preview form mode
     $scope.previewMode = false;
@@ -24,12 +24,11 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog,FormService) {
     // accordion settings
     $scope.accordion = {}
     $scope.accordion.oneAtATime = true;
-
+    let btns = [{result:'ok', label: 'OK', cssClass: 'btn-primary'}];
     // create new field button click
     $scope.addNewField = function(){
         var url=$scope.form.url;
         if(!url || url.indexOf('.git')===-1){
-            var btns = [{result:'ok', label: 'OK', cssClass: 'btn-primary'}];
              $dialog.messageBox("提示", "请填写正确的Url地址~！例如：git@github.com:alibaba/anyproxy.git", btns).open();
              return;
         }
@@ -107,10 +106,20 @@ angularApp.controller('CreateCtrl', function ($scope, $dialog,FormService) {
     }
     $scope.submit = function (){
         console.log(11)
-        var url = 'http://localhost:18080/api/gitbatch/test';
+        var url = AppServerEndPoint.basePath+AppServerEndPoint.createBatchApi;
         FormService.send(url,{data:$scope.form.form_fields}).then(function(data){
-            console.log(data)
+            if(data.resultCode===200){
+                var paths=data.paths;
+                for(var i=0;i<paths.length;i++){
+                    var path=paths[i];
+                    window.open(AppServerEndPoint.basePath+path);
+                }
+                
+            }else{
+                 $dialog.messageBox("提示", "下载文件失败", btns).open();
+                 return;
+            }
+            
         });
     }
-
 });
