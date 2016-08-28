@@ -9,7 +9,7 @@ Git批处理文件生成，Git批量克隆、更新、重置
 
 在`生成bat文件`时，需要允许浏览器弹窗下载文件，如下图：
 
-[允许浏览器弹窗](https://raw.githubusercontent.com/giscafer/git-batch-file-builder/master/allowpopwin.jpg)
+![允许浏览器弹窗](https://raw.githubusercontent.com/giscafer/git-batch-file-builder/master/allowpopwin.jpg)
 
 ### Dependencies
 
