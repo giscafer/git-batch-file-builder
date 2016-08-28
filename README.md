@@ -5,7 +5,11 @@ Git批处理文件生成，Git批量克隆、更新、重置
 
 ### About 
 
-编写此工具的原因是工作上遇到数十个工程，需要一个个`git clone`到本地，所以想使用工具替代重复的操作
+编写此工具的原因是工作上遇到数十个工程，需要一个个`git clone`到本地，所以想使用工具替代重复的操作。
+
+在`生成bat文件`时，需要允许浏览器弹窗下载文件，如下图：
+
+[允许浏览器弹窗](https://raw.githubusercontent.com/giscafer/git-batch-file-builder/master/allowpopwin.jpg)
 
 ### Dependencies
 
