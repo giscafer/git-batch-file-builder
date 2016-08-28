@@ -1,7 +1,8 @@
 <h1>生成Git批处理文件</h1>
 <br>
 <blockquote>
-    <p>填写git clone Url地址，分支名称，完成创建批处理bat文件并下载到电脑, 执行bat文件即可.</p>
+    <p>填写 git 工程URL地址，分支名称，添加完成后，点击【生成bat文件】按钮，将会下载git_clone_all.bat（批量克隆）、git_pull_all.bat（批量更新）、git_reset_all.bat（批量重置）三个批处理文件, 保存到电脑执行bat文件即可。</p>
+    <small>提示：私有项目请将git账号密码保存到本地再执行批处理文件，这样可一次执行完成，避免执行过程需要输入账号密码的麻烦</small>
 </blockquote>
 <div class="well">
     <div class="form-fields" ng-hide="previewMode">
@@ -16,7 +17,8 @@
         <div class="row">
             <div class="span2">分支（Branch）</div>
             <div class="span2">
-                <input type="text" ng-model="form.branch">
+                <input type="text" ng-model="form.branch" ng-disabled="disabledBrach">
+                <div style="float:left" ng-hide="true">（即将支持分支）</div>
             </div>
         </div>
         <div class="add-field">
@@ -39,7 +41,7 @@
                     <div class="row">
                         <div class="span2">分支（Branch）</div>
                         <div class="span2">
-                            <input type="text" ng-model="field.branch" value="{{field.branch}}">
+                            <input type="text" ng-model="field.branch" value="{{field.branch}}" ng-disabled="disabledBrach">
                         </div>
                     </div>
                 </div>
@@ -51,7 +53,7 @@
         </p>
         <br>
         <hr>
-        <div class="text-center">
+        <div class="text-center" ng-hide="true">
             <a class="btn btn-small btn-primary" ng-show="!showJson" ng-click="showJson = true">Show form json object</a>
             <a class="btn btn-small btn-inverse" ng-show="showJson" ng-click="showJson = false">Hide form json object</a>
             <br>
