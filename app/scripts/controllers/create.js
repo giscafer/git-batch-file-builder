@@ -4,7 +4,7 @@ angularApp.controller('CreateCtrl', function ($scope, $http,$dialog,FormService,
 
     // preview form mode
     $scope.previewMode = false;
-    $scope.disabledBrach = true;
+    $scope.disabledBrach = false;
 
     // new form
     $scope.form = {};
@@ -48,6 +48,7 @@ angularApp.controller('CreateCtrl', function ($scope, $http,$dialog,FormService,
         // put newField into fields array
         $scope.form.form_fields.push(newField);
         $scope.form.url='';
+        $scope.form.branch='';
     };
 
     // deletes particular field on button click
@@ -107,7 +108,6 @@ angularApp.controller('CreateCtrl', function ($scope, $http,$dialog,FormService,
         $scope.addField.lastAddedID = 0;
     }
     $scope.submit = function (){
-        console.log(11)
         var url = AppServerEndPoint.basePath+AppServerEndPoint.createBatchApi;
         FormService.send(url,{data:$scope.form.form_fields}).then(function(data){
             if(data.resultCode===200){
